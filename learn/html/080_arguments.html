@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /**
+         * 在调用函数时，浏览器每次都会向函数传递两个隐含的参数
+         * 1. 函数的上下文对象this
+         * 2. 封装实参的对象arguments
+         * 
+         * arguments是一个类数组对象，可以通过索引进行操作，也可以获取长度
+         * 在调用函数时，传递的实参都会在arguments中保存
+         */
+        // function fun(){
+        function fun(a, b){
+            console.log(arguments);
+            console.log(arguments instanceof Array);
+            console.log(Array.isArray(arguments));
+            console.log(arguments.length);
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+            console.log(arguments[2]);
+            console.log(arguments.callee); // callee属性对应当前所指向的函数对象
+            console.log(arguments.callee == fun);
+        }
+        
+        fun("hello", "ShiYang", true); // 即使不定义形参，也可以通过arguments传递实参
+    </script>
+</head>
+<body>
+
+</body>
+</html>

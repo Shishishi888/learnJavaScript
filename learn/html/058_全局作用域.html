@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /**
+         * 1. 全局作用域
+         *      -在页面打开时创建，在页面关闭时销毁；
+         *      -在全局作用域中有一个全局对象window，可以直接使用：
+         *          -它代表浏览器的一个窗口，由浏览器创建；
+         *          -在全局作用域中，创建的变量都会作为window对象的属性保存；
+         *          -在全局作用域中，创建的函数都会作为window对象的方法保存；
+         *      -全局作用域中的变量都是全局变量，在页面的任意位置都可以访问到
+         * 2. 局部作用域
+         */
+        console.log(window);
+        
+        var a = 10;
+        console.log(window.a);
+        
+        function fun(){
+            console.log("fun函数");
+        }
+        window.fun();
+        
+        window.alert("hello");
+
+        /**
+         * 变量的声明提前
+         * 使用var关键字声明的变量，会在所有代码执行之前被声明，但是不会被提前赋值
+         */
+        // console.log("b = " + b); // b = undefined
+        // var b = 123;
+        // b = 123;
+
+
+        /**
+         * 函数的声明提前
+         * 使用函数声明形式创建的函数，会在所有代码执行之前被创建，因此可以在函数声明前调用函数
+         * 使用函数表达式创建的函数，不会被声明提前，因此不能在函数声明前调用函数
+         */
+        fun1();
+        
+        function fun1(){
+            console.log("fun1");
+        }
+        
+        // fun2(); // fun2会声明提前，但是不会被提前赋值
+        console.log(fun2);
+        var fun2 = function (){ 
+            console.log("fun2");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

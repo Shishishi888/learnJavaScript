@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /**
+         * Date对象
+         */
+        var d1 = new Date(); // 封装当前这行代码执行的时间
+        console.log(d1);
+        
+        d2 = new Date("12/03/2016");
+        console.log(d2);
+
+        d3 = new Date("12/03/2016 11:10:30");
+        console.log(d3);
+
+        d4 = new Date("12/03/16 11:10:30");
+        console.log(d4);
+        
+        var date = d4.getDate();
+        console.log(date);
+        
+        var day = d4.getDay(); // 周0（周日） - 周6
+        console.log(day); 
+        
+        var month = d4.getMonth(); // 0（一月） - 11
+        console.log(month);
+        
+        var year = d4.getFullYear();
+        // var year = d4.getYear(); // 不建议使用
+        console.log(year);
+        
+        var hour = d4.getHours();
+        console.log(hour);
+        
+        var time = d4.getTime(); // 时间戳：从（格林尼治标准时间的）1970年1月1日0时0分0秒到当前时刻的毫秒数，1s = 1000ms
+        console.log(time);
+        console.log(time/1000/60/60/24/365);
+        
+        var d5 = new Date("1/1/1970 0:0:0"); // 这是北京时间（东八区）的1970年1月1日0时0分0秒，比格林尼治标准时间早8个小时
+        time = d5.getTime();
+        console.log(time);
+        
+        time = Date.now(); // 获取当前时间的时间戳
+        console.log(time);
+
+        
+        // 计算机以时间戳的形式保存时间
+         
+        // 利用时间戳测试计算机的性能
+        var startTime = Date.now();
+        for(var i = 0; i < 100; ++i)
+            console.log(i);
+        var endTime = Date.now();
+        console.log(endTime - startTime);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

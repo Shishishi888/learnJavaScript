@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var obj1 = {};
+        console.log(obj1);
+        console.log(typeof obj1);
+        
+        obj1.name = "史阳";
+        console.log(obj1.name);
+
+        /**
+         * 使用对象字面量，在创建对象时，可以直接指定对象中的属性
+         */
+        var obj2 = {
+            name: "史阳", 
+            age: 24, 
+            "gender": "男",
+            "!@#": "特殊字符",
+            test: { 
+                name: "史史"
+            }
+        };
+        console.log(obj2.name);
+        console.log(obj2.test.name);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /*        
+        var obj1 = {
+            name: "ShiYang",
+            age: 18,
+            gender: "male",
+            sayName: function (){
+                alert(this.name);
+            }
+        };
+
+        var obj2 = {
+            name: "Shishi",
+            age: 18,
+            gender: "male",
+            sayName: function (){
+                alert(this.name);
+            }
+        };
+
+        var obj3 = {
+            name: "Shishishi",
+            age: 18,
+            gender: "male",
+            sayName: function (){
+                alert(this.name);
+            }
+        };
+        */
+        
+        /**
+         * 使用工厂方法创建对象
+         */ 
+        function createPerson(name, age, gender){
+            var obj = new Object();
+            obj.name = name;
+            obj.age = age;
+            obj.gender = gender;
+            return obj;
+        }
+        var obj1 = createPerson("ShiYang", 24, "male");
+        var obj2 = createPerson("Momo", 22, "female");
+        console.log(obj1);
+        console.log(obj2);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

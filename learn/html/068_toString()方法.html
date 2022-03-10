@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function Person(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        
+        var person = new Person("ShiYang", 24, "male");
+        console.log(person);
+        console.log(person.toString());
+        
+        console.log(person.hasOwnProperty("toString"));
+        console.log(person.__proto__.hasOwnProperty("toString"));
+        console.log(person.__proto__.__proto__.hasOwnProperty("toString"));
+        
+        // person.toString = function(){
+        //     return "[" + "name: " + this.name + " age: " + this.age +" gender: " + this.gender + "]";
+        // };
+        
+        Person.prototype.toString = function(){
+            return "[" + "name: " + this.name + " age: " + this.age +" gender: " + this.gender + "]";
+        };
+        
+        console.log(person.toString());
+        
+        var person1 = new Person("Shishi", 24, "male");
+        console.log(person1.toString());
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        /**
+         *
+         * 1. 内建对象：由ES标准定义的对象，在任何ES的实现中都可以使用
+         *      Math、String、Number、Boolean、Function、Object ...
+         * 2. 宿主对象
+         *      由js运行环境提供的对象，目前来说主要是指由浏览器提供的对象
+         *      BOM、DOM
+         *      console.log();
+         *      document.log();
+         * 3. 自定义对象
+         *      由开发人员自己创建的对象
+         *
+         */
+
+            // 创建对象
+        var obj = new Object();
+        console.log(obj);
+        console.log(typeof obj);
+
+        // 添加属性
+        obj.name = "史阳";
+        obj.gender = "男";
+        obj.age = 24;
+        console.log(obj);
+
+        // 读取对象中的属性
+        console.log(obj.name);
+        console.log(obj.hello);
+
+        // 修改对象的属性值
+        obj.name = "张";
+        console.log(obj.name);
+
+        // 删除对象的属性
+        delete obj.name;
+        console.log(obj.name);
+
+    </script>
+</head>
+
+
+<body>
+
+</body>
+
+</html>

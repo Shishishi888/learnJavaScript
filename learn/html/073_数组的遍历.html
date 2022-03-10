@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var arr = ["ShiYang", "Shishi", "Shishishi"];
+        console.log(arr[0]);
+        console.log(arr[1]);
+        console.log(arr[2]);
+        console.log(arr[3]);
+        
+        for(var i = 0; i < arr.length; ++i){
+            console.log(arr[i]);
+        }
+        
+        function Person(name, age, gender){
+            this.name = name;
+            this.age = age;
+        }
+        
+        Person.prototype.toString = function(){
+          return "Person[name=" + this.name + ", age=" + this.age  + "]"; 
+        };
+        
+        var person1 = new Person("ShiYang", 24);
+        var person2 = new Person("Shishi", 18);
+        var person3 = new Person("Shishishi", 12);
+        var person4 = new Person("Momo", 19);
+        
+        var personArr = [person1, person2, person3, person4];
+        
+        function getAdult(arr){
+            var newArr = [];
+            for(var i = 0; i < arr.length; ++i){
+                var p = arr[i];
+                if(p.age >= 18)
+                    newArr.push(p);
+            }
+            return newArr;
+        }
+        
+        var result = getAdult(personArr);
+        console.log(result);
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

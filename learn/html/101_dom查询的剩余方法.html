@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function (){
+            // var body = document.getElementsByTagName("body")[0];
+            /**
+             * document的body属性，指代body标签
+             */
+            var body = document.body;
+            console.log(body);
+
+            /**
+             * document的documentElement属性，指代html根标签
+             */
+            var html = document.documentElement;
+            console.log(html);
+
+            /**
+             * document的all属性，代表页面的所有元素
+             */
+            var all = document.all;
+            console.log(all);
+            console.log(all.length);
+            for(var i = 0; i < all.length; ++i){
+                console.log(all[i]);
+            }
+
+            /**
+             * '*'也代表页面的所有元素
+             */
+            all = document.getElementsByTagName("*");
+            console.log(all);
+            console.log(all.length);
+            for(var i = 0; i < all.length; ++i){
+                console.log(all[i]);
+            }
+
+            /**
+             * 根据class属性值获取一组元素节点对象
+             * 不兼容IE8及以下版本的浏览器
+             */
+            var box1 = document.getElementsByClassName("box1");
+            console.log(box1.length);
+
+            // 获取页面中的所有div
+            var divs = document.getElementsByTagName("div");
+            console.log(divs.length);
+
+            /**
+             * document.querySelector();
+             * 可以根据CSS选择器来查询元素节点对象
+             * .class
+             * #id
+             * tag名
+             * 
+             * 虽然IE8及以下版本的浏览器不兼容document.getElementsByClassName()，但是可以使用document.querySelector()代替
+             * 
+             * 使用document.querySelector()查询，总返回唯一的元素，即使满足条件的元素有多个
+             * 
+             */
+            var div = document.querySelector(".box1 div");
+            console.log(div.innerHTML);
+
+            var box1 = document.querySelector(".box1"); 
+            console.log(box1.innerHTML);
+
+            /**
+             * document.querySelectorAll();
+             * 将符合条件的元素封装到数组中返回
+             * 即使符合条件的元素只有一个，也会返回数组
+             */
+            var box1 = document.querySelectorAll(".box1");
+            console.log(box1);
+
+            box1 = document.querySelectorAll("#box1"); // 根据id查元素，查询结果一定是唯一的
+            console.log(box1);
+        }
+    </script>
+</head>
+<body>
+    <div class="box1">
+        <div>
+            box1中的div
+        </div>
+    </div>
+
+    <div class="box1">
+    </div>
+
+    <div id="box1">
+    </div>
+
+<!--    <div class="box1">-->
+<!--    </div>-->
+</body>
+</html>

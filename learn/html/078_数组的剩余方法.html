@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var arr1 = ["ShiYang", "Shishi", "Shishishi"];
+        var arr2 = ["ShiYang8", "Shishi8", "Shishishi8"];
+        var arr3 = ["ShiYang9", "Shishi9", "Shishishi9"];
+        
+        var result = arr1.concat(arr2);
+        console.log(arr1); // 不改变原数组
+        console.log(result);
+        
+        result = arr1.concat(arr2, arr3);
+        console.log(result);
+
+        result = arr1.concat(arr2, arr3, "ShiYang10", "Shishi10", "Shishishi10");
+        console.log(result);
+        
+        result = arr1.join(); // 将数组转换成字符串，默认使用"，"作为连接符
+        console.log(typeof arr1);
+        console.log(arr1); // 不改变原数组
+        console.log(typeof result);
+        console.log(result);
+        
+        result = arr1.join("-");
+        console.log(result);
+        
+        result = arr1.reverse();
+        console.log(arr1); // 改变原数组
+        console.log(result);
+        
+        var arr4 = ["b", "d", "e", "a", "c"];
+        result = arr4.sort(); // 按照Unicode编码进行排序
+        console.log(arr4); // 改变原数组
+        console.log(result);
+        
+        var arr5 = [3, 4, 11, 2, 5];
+        result = arr5.sort(); // 对数字进行排序，同样按照Unicode编码进行排序
+        console.log(arr5);
+        console.log(result);
+
+        /**
+         * 可以在sort()函数中添加一个回调函数来指定排序规则
+         *      回调函数需要定义两个形参
+         *      浏览器会根据回调函数的返回值来决定元素的顺序
+         *          如果返回值大于0，交换两个元素的位置
+         *          如果返回值小于0，不交换两个元素的位置
+         *          如果返回值等于0，则认为两个元素相等，同样不交换两个元素的位置
+         */
+
+        arr6 = [5, 4, 2, 1, 3, 6, 8, 7];
+        result = arr6.sort(function(a, b){
+           // console.log("a = " + a + " b = " + b); 
+            // 升序排列
+            // if(a > b){ // 如果前面的元素大于后面的元素
+            //     return 1;
+            // }
+            // else if(a < b){
+            //     return  -1;
+            // }
+            // else{
+            //     return 0;
+            // }
+            // return a - b; // 升序排列
+            return b - a; // 降序排列
+        });
+        console.log(arr6);
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

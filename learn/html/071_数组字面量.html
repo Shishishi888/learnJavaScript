@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        // 创建一个数组
+        var arr = new  Array();
+        arr[0] = 123;
+        arr.hello = "abc"; // 没意义
+        console.log(arr.hello);
+        
+        // 使用字面量创建数组
+        var arr1 = [];
+        console.log(typeof arr1);
+        
+        // 使用字面量创建数组时，可以在创建的同时指定数组中的元素
+        var arr2= [1, 2, 3, 4, 5, 10];
+        console.log(arr2);
+        
+        // 使用构造函数创建数组时，也可以在创建的同时指定数组中的元素
+        var arr3 = new Array(1, 2, 3);
+        console.log(arr3);
+        
+        var arr4 = [10]; // 创建一个数组，数组中只有一个元素10
+        console.log(arr4);
+        
+        var arr5 = new Array(10); // 创建一个数组，数组的长度为10
+        console.log(arr5);
+        
+        // 数组可以存放任意数据类型的元素
+        var arr6= ["hello", 1, true, null, undefined];
+        console.log(arr6);
+        
+        // 数组也可以存放对象
+        var obj = {
+            name: "ShiYang"
+        }
+        
+        arr6[arr6.length] = obj;
+        console.log(arr6);
+        console.log(arr6[arr6.length-1].name);
+        
+        var arr7 = [{name: "ShiYang"}, {name: "Shishi"}, {name: "Shishishi"}];
+        console.log(arr7);
+        
+        // 数组也可以存放函数（函数也是对象）
+        var arr8 = [function(){alert(1)}, function(){alert(2)}];
+        console.log(arr8);
+        arr8[0]();
+        
+        var arr9 = [[1, 2, 3], [1, 2, 3], [1, 2, 3]];
+        console.log(arr9);
+        console.log(arr9[0]);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

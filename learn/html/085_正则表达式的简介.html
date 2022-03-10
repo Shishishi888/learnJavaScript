@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        // 创建正则表达式的对象。语法：var 变量 = new RegExp("正则表达式", "匹配模式");
+        var reg = new RegExp("a"); // 检查目标字符串中是否含有"a"，严格区分大小写
+        console.log(reg);
+        console.log(typeof reg);
+        
+        // 使用test()方法可以检查一个字符串是否符合正则表达式的规则
+        console.log(reg.test("bcabc"));
+        console.log(reg.test("bcbc"));
+        console.log(reg.test("Abcbc"));
+        
+        reg = new RegExp("a", "i"); // 匹配模式"i"，忽略字母大小写
+        console.log(reg.test("abcbc"));
+        console.log(reg.test("Abcbc"));
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

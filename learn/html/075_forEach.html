@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var arr = ["ShiYang", "Shishi", "Shishishi"];
+        /**
+         * forEach 需要一个函数作为参数
+         * 
+         * 回调函数：由我们创建，但不由我们调用
+         * 
+         * 数组中有几个元素函数就会执行几次，每次执行将遍历一个元素
+         * 元素以实参的形式传递进来，可以定义形参来获取这个元素
+         *      
+         * 浏览器会在回调函数中传递三个参数
+         * 第一个参数：当前正在遍历的元素
+         * 第二个参数：当前正在遍历的元素的索引
+         * 第三个参数：正在遍历的数组
+         */
+        arr.forEach(function (value, index, obj, d){
+            console.log("value = " + value + ", index = " + index + ", obj = " + obj + ", d = " + d);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

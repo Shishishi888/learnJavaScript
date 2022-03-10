@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /**
+         * 函数作用域
+         */
+        var a = 10;
+        function fun1(){
+            var a = 20;
+            function fun2(){
+                console.log(window.a);
+                console.log(a);
+            }
+            fun2();
+        }
+        fun1();
+
+        /**
+         * 在函数作用域中也有声明提前的特性
+         * 使用var关键字声明的变量，会在函数的所有代码执行前被声明
+         * 函数声明也会在函数的所有代码执行前被声明
+         */
+        function fun3(){
+            console.log(b); // 变量b被提前声明，但并未被赋值
+            var b = 30;
+            
+            fun4();
+            function fun4(){
+                alert("fun4")
+            }
+        }
+        fun3();
+        
+        var c = 33;
+        function fun5(){
+            console.log(c);
+            // var c = 34;
+            c = 34; // 在函数中，不使用var声明的变量都将会成为全局变量
+            d = 35;
+        }
+        fun5();
+        console.log(c);
+        console.log(d);
+        
+        var e = 23;
+
+        /**
+         * 定义形参就相当于在函数作用域中声明该变量
+         * @param e
+         */
+        function fun6(e){
+            alert(e);
+        }
+        fun6();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

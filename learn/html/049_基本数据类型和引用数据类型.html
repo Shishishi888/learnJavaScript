@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /**
+         * 基本数据类型：String Number Boolean Null Undefined
+         *  基本数据类型的值直接在栈内存中存储，值与值之间是独立存在的
+         * 引用数据类型：Object
+         *  引用数据类型的值保存在堆内存中，而栈内存只保存值的地址
+         */
+        
+        var a = 123;
+        var b = a;
+        
+        ++a;
+        
+        console.log("a = " + a);
+        console.log("b = " + b);
+        
+        
+        var obj1 = new Object();
+        obj1.name = "史阳";
+        var obj2 = obj1;
+        
+        obj1 .name = "史史";
+        
+        console.log(obj1.name);
+        console.log(obj2.name); 
+        
+        obj2 = null;
+
+        console.log(obj1);
+        console.log(obj2);
+        
+        var c = 10;
+        var d = 10;
+        console.log(c == d); // true，栈内存中的值一样
+
+        var obj3 = new Object();
+        var obj4 = new Object();
+        
+        obj3.name = "史阳";
+        obj4.name = "史阳";
+        console.log(obj3 == obj4); // false，栈内存中的值（对象在堆内存中的地址）不一样
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

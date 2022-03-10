@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function (){
+          document.onkeydown = function (event){
+            event = event || window.event;
+              // alert(event.keyCode);
+              var speed = 10;
+              if(event.ctrlKey) // 按下ctrl键加速
+                  speed = 20;
+              var box1 = document.getElementById("box1");
+              switch (event.keyCode){
+                  case 37: // 左箭头
+                      box1.style.left = box1.offsetLeft - speed + "px";
+                      break; 
+                  case 38: // 上箭头
+                      box1.style.top = box1.offsetTop - speed + "px";
+                      break; 
+                  case 39: // 右箭头
+                      box1.style.left = box1.offsetLeft + speed + "px";
+                      break; 
+                  case 40: // 下箭头
+                      box1.style.top = box1.offsetTop + speed + "px";
+                      break; 
+              }
+          };
+        };
+    </script>
+</head>
+<body>
+    <div id="box1">
+    
+    </div>
+
+</body>
+</html>

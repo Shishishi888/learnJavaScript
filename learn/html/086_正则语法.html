@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        // var reg = new RegExp();
+        /**
+         * 使用字面量创建正则表达式
+         * 语法：var 变量 = /正则表达式/匹配模式;
+         */
+        var reg = /a/i;
+        console.log(typeof reg);
+        console.log(reg.test("abc"));
+        
+        reg = /a|b/; // 检查目标字符串中是否含有"a"或者"b"
+        console.log(reg.test("cd"));
+        console.log(reg.test("ad"));
+        console.log(reg.test("bd"));
+
+        reg = /a|b|c/; // 检查目标字符串中是否含有"a"或者"b"或者"c"
+        
+        reg = /[abcdefg]/; // []中的元素也是"或"的关系
+        
+        reg = /[a-z]/; // 检查目标字符串中是否含有任意小写的字母
+        console.log(reg.test("h"));
+        console.log(reg.test("H"));
+
+        reg = /[A-Z]/; // 检查目标字符串中是否含有任意大写的字母
+        console.log(reg.test("h"));
+        console.log(reg.test("H"));
+
+        reg = /[A-Z]/i; // 检查目标字符串中是否含有任意字母，忽略大小写
+        console.log(reg.test("h"));
+        console.log(reg.test("H"));
+
+        reg = /[A-z]/; // 检查目标字符串中是否含有任意字母，忽略大小写
+        console.log(reg.test("h"));
+        console.log(reg.test("H"));
+        
+        reg = /abc|adc|aec/; // 检查目标字符串中是否含有"abc"或者"adc"或者"aec"
+        console.log(reg.test("afc"));
+        console.log(reg.test("adc"));
+
+        reg = /a[ade]c/; // 检查目标字符串中是否含有"abc"或者"adc"或者"aec"
+        console.log(reg.test("afc"));
+        console.log(reg.test("adc"));
+
+
+        reg = /[^ab]/; // 检查目标字符串中是否含有除了"a"或"b"以外的其他元素
+        console.log(reg.test("a"));
+        console.log(reg.test("b"));
+        console.log(reg.test("ac"));
+        console.log(reg.test("bc"));
+        console.log(reg.test("abc"));
+
+
+        reg = /[0-9]/; // 检查目标字符串中是否含有数字
+        console.log(reg.test("a1bc"));
+        console.log(reg.test("abc"));
+
+        reg = /[^0-9]/; // 检查目标字符串中是否含有除了数字以外的其他元素
+        console.log(reg.test("123"));
+        console.log(reg.test("123a"));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

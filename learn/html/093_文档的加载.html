@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script type="text/javascript">-->
+<!--        /**-->
+<!--         *  页面没有加载，js代码将无法获取到DOM对象，因此无法执行-->
+<!--         */-->
+<!--        var btn = document.getElementById("btn");-->
+<!--        // btn.onclick = function (){-->
+<!--        //     alert("hello");-->
+<!--        // };-->
+<!--        console.log(btn);-->
+<!--    </script>-->
+
+        <script type="text/javascript">
+            /**
+             * onload事件，在整个页面完成加载之后触发
+             *
+             * 为window绑定一个onload事件，该事件对应的响应函数将在整个页面加载完成之后执行，这样就可以保证代码在执行时所有的DOM对象都已经加载完毕
+             * 
+             */
+            window.onload = function (){
+                var btn = document.getElementById("btn");
+                btn.onclick = function (){
+                    alert("hello");
+                };
+                console.log(btn); 
+            }
+        </script>
+</head>
+<body>
+    <!--    
+        浏览器加载页面时，程序自上而下执行
+    -->
+    <button id="btn">按钮</button>
+<!--    <script type="text/javascript">-->
+<!--        var btn = document.getElementById("btn");-->
+<!--        btn.onclick = function (){-->
+<!--            alert("hello");-->
+<!--        };-->
+<!--    </script>-->
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #box1{
+            /*width: 100px;*/
+            height: 100px;
+            /*background-color: yellow;*/
+        }
+    </style>
+    <script type="text/javascript">
+        /**
+         * 操作元素的当前样式
+         */
+        window.onload = function (){
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function (){
+                /**
+                 * 元素.currentStyle.样式名
+                 * 
+                 * 获取元素当前生效的样式
+                 * 
+                 * 只有IE浏览器支持currentStyle
+                 * 
+                 * 如果没有提前设置要获取的样式，则返回样式的默认值
+                 */
+                // alert(box1.currentStyle.width); 
+                
+                // box1.currentStyle.width = "200px";
+                
+                /**
+                 * getComputedStyle();
+                 * 
+                 * 不兼容IE8及以下版本的浏览器
+                 * 
+                 * 该方法需要两个参数:
+                 *      第一个参数：要操作的元素
+                 *      第二个参数：可以传递一个伪元素，一般传null
+                 * 
+                 * 调用该方法返回一个对象，对象封装了元素当前生效的样式
+                 * 
+                 * 如果没有提前设置要获取的样式，则返回样式的真实值，而不是默认值
+                 */
+                // var obj = getComputedStyle(box1, null);
+                // alert(obj.width);
+                // alert(obj.backgroundColor);
+                
+                alert(getStyle(box1, "width"));
+
+                /**
+                 * 通过currentStyle和getComputedStyle只能读取元素的样式，而不能修改元素的样式
+                 * 只能通过style属性修改样式
+                 */
+
+            };
+
+            /**
+             * 定义一个函数，获取指定元素的当前样式
+             */
+            function getStyle(obj, styleName){
+                // return getComputedStyle(obj, null)[styleName]; // 支持IE以外（及IE9以上版本）的浏览器
+                return obj.currentStyle[styleName]; // 只支持IE浏览器
+            }
+        };
+    </script>
+</head>
+<body>
+    <button id="btn01">按钮1</button>
+    <div id="box1">
+        
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function (){
+            var btn01 = document.getElementById("btn01");
+            // btn01.onclick = function (){
+            //     alert(1);
+            // };
+            // btn01.onclick = function (){ // 第二个单击响应函数会将第一个单击响应函数覆盖
+            //     alert(2);
+            // };
+
+            /**
+             * addEventListener
+             * 可以为同一元素的同一事件同时绑定多个事件响应函数
+             * 参数：
+             *  1. 事件字符串。没有"on"
+             *  2. 回调函数，当事件触发时被调用
+             *  3. 是否在捕获阶段触发事件，一般都传false
+             *
+             *  不兼容IE8及以下版本的浏览器
+             *
+             *  绑定的事件响应函数顺序执行
+             */
+            // btn01.addEventListener("click", function (){
+            //     alert(1);
+            // }, false);
+            // btn01.addEventListener("click", function (){
+            //     alert(2);
+            // }, false);
+            // btn01.addEventListener("click", function (){
+            //     alert(3);
+            // }, false);
+
+            /**
+             * attachEvent
+             * 也可以为同一元素的同一事件同时绑定多个事件响应函数
+             * 只有IE浏览器支持attachEvent
+             * 参数：
+             *  1. 参数字符串。有"on"
+             *  2. 回调函数
+             *
+             *  绑定的事件响应函数逆序执行
+             *
+             *  一般情况下函数的执行顺序不重要，如果特别重要，则应该将所有函数写成一个函数
+             */
+            // btn01.attachEvent("onclick", function (){
+            //     alert(1);
+            // });
+            // btn01.attachEvent("onclick", function (){
+            //     alert(2);
+            // });
+            // btn01.attachEvent("onclick", function (){
+            //     alert(3);
+            // });
+
+            // btn01.addEventListener("click", function (){
+            //     alert(this); // this指向绑定事件的对象btn01
+            // }, false);
+            //
+            // btn01.attachEvent("onclick", function (){
+            //     alert(this); // this指向window
+            // });
+
+            /**
+             * 解决兼容性问题
+             */
+            // bind(btn01, "click", function (){
+            //     alert("123");
+            // });
+            // bind(btn01, "click", function (){
+            //     alert("456");
+            // });
+            bind(btn01, "click", function (){
+                alert(this); // Chrome等浏览器，this指向绑定事件的对象；IE浏览器，this指向window
+            });
+        };
+
+        /**
+         * 定义一个函数，为指定的元素绑定事件响应函数
+         * @param obj 要绑定事件的对象
+         * @param eventStr 事件的字符串（没有"on"）
+         * @param callback 回调函数
+         * 
+         * 统一this指向的内容
+         * this指向的内容是由函数的调用方式决定
+         */
+        function bind(obj, eventStr, callback){
+            if(obj.addEventListener)
+                obj.addEventListener(eventStr, callback, false); // addEventListener
+            else
+                // obj.attachEvent("on"+eventStr, callback); // attachEventListener，由浏览器调用callback，this指向window
+                
+                // 在匿名函数中调用回调函数
+                obj.attachEvent("on"+eventStr, function (){ // 由浏览器调用匿名函数function
+                    callback.call(obj); // 在匿名函数function中调用callback，this指向obj
+                }); 
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">按钮</button>
+</body>
+</html>

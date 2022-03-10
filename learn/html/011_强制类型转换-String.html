@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+        <script type="text/javascript">
+
+            /*
+                强制类型转换主要是指将其他数据类型转换成String、Number、Boolean
+             */
+
+            var a = 123;
+            console.log(typeof a);
+            console.log(a);
+
+            // 方式一，调用toString()方法
+            a.toString();
+            console.log(typeof a);
+            console.log(a);
+
+            var b = a.toString();
+            console.log(typeof b);
+            console.log(b);
+
+            a = a.toString();
+            console.log(typeof a);
+            console.log(a);
+
+            a = true;
+            a = a.toString();
+            console.log(typeof a);
+            console.log(a);
+
+            /*
+            // null和undefined没有toString()方法
+            a = null;
+            a = a.toString();
+            console.log(typeof a);
+            console.log(a);
+
+            a = undefined;
+            a = a.toString();
+            console.log(typeof a);
+            console.log(a);
+             */
+
+            // 方式二，调用String()函数
+            a = 123;
+            String(a);
+            console.log(typeof a);
+            console.log(a);
+
+            a = String(a);
+            console.log(typeof a);
+            console.log(a);
+
+            a = null;
+            a = String(a);
+            console.log(typeof a);
+            console.log(a);
+
+            a = undefined;
+            a = String(a);
+            console.log(typeof a);
+            console.log(a);
+
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

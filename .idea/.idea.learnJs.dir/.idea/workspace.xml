@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c2cdd904-125a-4800-b527-6badc39a999e" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="22S6FrbZ5zQ89aFhxNJTLNXsPua" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.59_函数作用域.html">
+    <configuration name="58_全局作用域.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/learnJs/58_全局作用域.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="59_函数作用域.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/learnJs/59_函数作用域.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="基本数据类型和引用数据类型.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/learnJs/day03/基本数据类型和引用数据类型.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="对象.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/learnJs/day03/对象.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.59_函数作用域.html" />
+        <item itemvalue="JavaScript Debug.58_全局作用域.html" />
+        <item itemvalue="JavaScript Debug.基本数据类型和引用数据类型.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c2cdd904-125a-4800-b527-6badc39a999e" name="Changes" comment="" />
+      <created>1639818541887</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1639818541887</updated>
+      <workItem from="1639818545719" duration="1541000" />
+      <workItem from="1639820496300" duration="4044000" />
+      <workItem from="1639901351207" duration="102000" />
+      <workItem from="1639901655403" duration="5880000" />
+      <workItem from="1641815938896" duration="3551000" />
+      <workItem from="1641829630282" duration="2468000" />
+      <workItem from="1641869398294" duration="4130000" />
+      <workItem from="1642000504643" duration="6493000" />
+      <workItem from="1642088317895" duration="2131000" />
+      <workItem from="1642318376417" duration="6629000" />
+      <workItem from="1643019295352" duration="6796000" />
+      <workItem from="1643189257146" duration="16267000" />
+      <workItem from="1643267489737" duration="7931000" />
+      <workItem from="1643293581949" duration="4389000" />
+      <workItem from="1643349839879" duration="10195000" />
+      <workItem from="1643372724532" duration="16000" />
+      <workItem from="1644308146236" duration="10951000" />
+      <workItem from="1644388684528" duration="5646000" />
+      <workItem from="1644561271687" duration="7192000" />
+      <workItem from="1644592736965" duration="202000" />
+      <workItem from="1644592950213" duration="755000" />
+      <workItem from="1644593717263" duration="14134000" />
+      <workItem from="1644740722930" duration="12937000" />
+      <workItem from="1644917328945" duration="5888000" />
+      <workItem from="1645073935036" duration="17542000" />
+      <workItem from="1645161781397" duration="928000" />
+      <workItem from="1645163842492" duration="10184000" />
+      <workItem from="1645423980746" duration="8819000" />
+      <workItem from="1645611022411" duration="2960000" />
+      <workItem from="1645618218444" duration="5298000" />
+      <workItem from="1645664057623" duration="11852000" />
+      <workItem from="1645884798733" duration="3575000" />
+      <workItem from="1646014618227" duration="56000" />
+      <workItem from="1646015081116" duration="3938000" />
+      <workItem from="1646056407916" duration="4695000" />
+      <workItem from="1646489495151" duration="5302000" />
+      <workItem from="1646535063629" duration="3574000" />
+      <workItem from="1646556935059" duration="3079000" />
+      <workItem from="1646815096333" duration="5923000" />
+      <workItem from="1646835607276" duration="1826000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

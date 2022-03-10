@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /**
+         * 检查字符串中是否含有.
+         * .表示任意字符
+         */
+        var reg = /./;
+        console.log(reg.test("."));
+        console.log(reg.test("a"));
+        console.log(reg.test("abcd"));
+
+        var reg = /\./; // 使用转义字符
+        console.log(reg.test("."));
+        console.log(reg.test("a"));
+        console.log(reg.test("abcd"));
+
+        reg = new RegExp("\.");
+        console.log(reg.test("."));
+        console.log(reg.test("a"));
+        console.log(reg.test("abcd"));
+
+        reg = new RegExp("\\.");
+        console.log(reg.test("."));
+        console.log(reg.test("a"));
+        console.log(reg.test("abcd"));
+
+        /**
+         * 检查字符串中是否含有\
+         */
+        var reg = /\\/;
+        console.log("\\");
+        console.log(reg.test("\\"));
+        console.log(reg.test("a"));
+        console.log(reg.test("abcd"));
+
+        reg = new RegExp("\\\\");
+        console.log(reg.test("\\"));
+        console.log(reg.test("a"));
+        console.log(reg.test("abcd"));
+
+
+        /**
+         * \w 任意字母、任意数字、_，相当于[A-z0-9_]
+         * \W 除了字母、数字、_，相当于[^A-z0-9_]
+         * \d 任意数字，相当于[0-9]
+         * \D 除了数字，相当于[^0-9]
+         * \s 空格
+         * \S 除了空格
+         * \b 单词边界
+         * \B 除了单词边界
+         */
+        
+        reg = /\s/;
+        console.log(reg.test("123"));
+        console.log(reg.test("12 3"));
+
+        reg = /\S/;
+        console.log(reg.test("123"));
+        console.log(reg.test("12 3"));
+        console.log(reg.test("   "));
+        
+        reg = /child/;
+        console.log(reg.test("hello child"));
+        console.log(reg.test("hello children"));
+
+        reg = /\bchild\b/; // 表示含有独立的child
+        console.log(reg.test("hello child"));
+        console.log(reg.test("hello children"));
+
+
+        /**
+         * 去掉admin开头和结尾的空格
+         */
+        // var str = prompt("请输入用户名：");
+        var str = "   admin ";
+        str = str.replace(/\s/g, "");
+        console.log(str);
+        
+        /**
+         * 去掉ad min开头和结尾的空格
+         */
+        str = "   ad min ";
+        str = str.replace(/^\s*/, ""); // 匹配开头的0个或多个空格
+        str = str.replace(/\s*$/, ""); // 匹配结尾的0个或多个空格
+        console.log(str);
+
+        str = "   ad min ";
+        str = str.replace(/^\s*$/, ""); // 匹配开头的0个或多个空格 和 结尾的0个或多个空格，即匹配空串
+        console.log(str);
+
+        str = "   ad min ";
+        str = str.replace(/^\s*|\s*$/g, ""); // 匹配开头的0个或多个空格 或 结尾的0个或多个空格
+        console.log(str);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

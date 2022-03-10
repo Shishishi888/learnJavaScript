@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /**
+         * 电子邮件的规则
+         * hello@abc.com.cn
+         * 
+         * hello部分，任意字母、数字、_、.
+         * abc部分，任意字母、数字
+         * com部分，任意字母，2-5位
+         * cn，任意字母，2-5位
+         */
+        
+        var emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
+        var email1 = "abc@abc.com";
+        var email2 = "abc.hello@163.com";
+        var email3 = "abc@abc.com.123";
+        var email4 = "#abc.hello@163.com";
+        console.log(emailReg.test(email1));
+        console.log(emailReg.test(email2));
+        console.log(emailReg.test(email3));
+        console.log(emailReg.test(email4));
+        
+        // 网上查找好用的正则表达式
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

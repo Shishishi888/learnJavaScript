@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        
+        var reg = /aaa/;
+        console.log(reg.test("abc"));
+        console.log(reg.test("aaabc"));
+
+        /**
+         * 量词
+         * 通过量词可以设置内容出现的次数
+         * {m} 出现m次
+         * {m,n} 出现m到n次
+         * {m,} 出现m次以上
+         * 
+         * + 出现至少一次,，相当于{1,}
+         * * 出现0次或多次，相当于{0,}
+         * ？出现0次或1次，相当于{0,1}
+         */
+        reg = /a{3}/;
+        console.log(reg.test("abc"));
+        console.log(reg.test("aaabc"));
+        
+        reg = /(ab){3}/;
+        console.log(reg.test("ababab"));
+        
+        reg = /ab{1,3}c/;
+        console.log(reg.test("abc"));
+        console.log(reg.test("abbc"));
+        console.log(reg.test("abbbc"));
+        console.log(reg.test("abbbbc"));
+
+        reg = /ab{3,}c/;
+        console.log(reg.test("abbc"));
+        console.log(reg.test("abbbc"));
+        console.log(reg.test("abbbbc"));
+        
+        reg = /ab+c/;
+        console.log(reg.test("ac"));
+        console.log(reg.test("abc"));
+        console.log(reg.test("abbc"));
+
+        reg = /ab*c/;
+        console.log(reg.test("ac"));
+        console.log(reg.test("abc"));
+        console.log(reg.test("abbc"));
+
+        reg = /ab?c/;
+        console.log(reg.test("ac"));
+        console.log(reg.test("abc"));
+        console.log(reg.test("abbc"));
+
+        /**
+         * ^a 表示以a开头
+         * a$ 表示以a结尾
+         */
+        reg = /^a/;
+        console.log(reg.test("abc"));
+        console.log(reg.test("bcabc"));
+        
+        reg = /a$/;
+        console.log(reg.test("abca"));
+        console.log(reg.test("abc"));
+
+        reg = /^a$/; // 只能是"a"
+        console.log(reg.test("a")); // true
+        console.log(reg.test("aa")); // false
+
+        reg = /^a|a$/; // 以a开头或者以a结尾
+        console.log(reg.test("abc"));
+        console.log(reg.test("bca"));
+
+        /**
+         * 检查手机号是否合法
+         * 
+         * 手机号规则：
+         * 一共11位；
+         * 第一位只能是1；
+         * 第二位不能是0、1、2；
+         * 第三位及以后可以是任意数字
+         */
+        var phoneStr1 = "16622537835";
+        var phoneStr2 = "26622537835";
+        var phoneStr3 = "10622537835";
+        var phoneStr4 = "16S22537835";
+        var phoneStr5 = "166225378355";
+        var phoneReg = /^1[3-9][0-9]{9}$/;
+        console.log(phoneReg.test(phoneStr1));
+        console.log(phoneReg.test(phoneStr2));
+        console.log(phoneReg.test(phoneStr3));
+        console.log(phoneReg.test(phoneStr4));
+        console.log(phoneReg.test(phoneStr5));
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

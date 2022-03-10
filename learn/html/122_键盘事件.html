@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /**
+         * 键盘事件
+         * onkeydown
+         * onkeyup
+         * 
+         * 
+         * onkeydown
+         * 按下按键不松开，会一直触发
+         * 当按下按键持续触发时，第一次触发和第二次触发的时间间隔会稍长，防止误操作
+         * 
+         * 键盘事件一般绑定给可以获得焦点的对象或document
+         */
+        
+        window.onload = function (){
+          // 绑定document 
+          document.onkeydown = function (event){
+              event = event || window.event;
+              console.log(event.keyCode); // 获取按键的编码
+              
+              if(event.keyCode == 89){
+                  alert("按下Y键");
+              }
+
+              // if(event.keyCode == 17 && event.keyCode == 89){
+              //     alert("同时按下Ctrl键和Y键");
+              // }
+
+              /**
+               * altKey
+               * ctrlKey
+               * shiftKey
+               * 分别判断alt、ctrl、shift键是否被按下
+               */
+              if(event.ctrlKey && event.keyCode == 89){
+                  alert("同时按下Ctrl键和Y键");
+              }
+          };
+          // document.onkeyup = function (){
+          //   console.log("松开");  
+          // };
+            
+          //绑定焦点对象
+          var input = document.getElementsByTagName("input")[0];
+          input.onkeydown = function (event){
+            // alert("按键被按下");  
+            // return false; // 取消将键盘字符填充到文本框的默认行为
+              
+            // 只能输入数字
+            event = event || window.event;
+            if(event.keyCode >= 48 && event.keyCode <= 57)
+                return false;
+              
+          };
+        };
+        
+    </script>
+</head>
+<body>
+    <div id="box1" style="width: 100px;height: 100px;background-color: red">
+        
+    </div>
+
+    <input type="text"/>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function Person(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            /**
+             * 每执行一次构造函数就创建一个新的方法，这是没必要的，可以使所有对象共享同一个方法
+             *
+             */
+            // this.sayName = function (){
+            //     alert("hello " + this.name);
+            // };
+            
+            // this.sayName = fun;
+        }
+
+        /**
+         * 将sayName方法在全局作用域中定义
+         * 将函数定义在全局作用域，污染了全局作用域的命名空间，而且定义在全局作用域也不安全
+         */
+        // function fun(){
+        //     alert("hello " + this.name);
+        // };
+            
+            Person.prototype.sayName = function (){
+                alert("hello " + this.name);
+            }
+        
+        var person1 = new Person("ShiYang", 18, "male");
+        var person2 = new Person("Shishi", 24, "male");
+        
+        person1.sayName();
+        person2.sayName();
+        
+        console.log(person1.sayName() == person2.sayName());
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /**
+         * 函数
+         *  函数也是对象
+         *  函数可以封装一些功能，在需要的时候执行这些功能
+         */
+        var fun1 = new Function();
+        console.log(fun1);
+        console.log(typeof fun1); 
+        
+        /**
+         * 可以将要封装的代码以字符串的形式传递给构造函数
+         * 封装到函数中的代码不会立即执行，而是在函数调用的时候执行
+         */
+        var fun2 = new Function("console.log('hello');");
+
+        // 调用函数的语法：函数对象()
+        fun2();
+        fun2();
+        
+        fun2.hello = "你好";
+        console.log(fun2.hello);
+
+        /**
+         * 使用函数声明创建一个函数
+         */
+        function fun3(){
+            console.log("HELLO");
+        }
+        
+        console.log(fun3);
+        
+        fun3();
+
+        /**
+         * 使用函数表达式创建一个函数
+         */
+        
+        /*
+        // 匿名函数，不能直接使用
+        function(){
+            console.log("匿名函数");
+        }
+        */
+        
+        // 将匿名函数赋值给一个函数变量
+        // 因为是赋值语句，所以在代码块的最后最好加上分号（;）
+        var fun4 = function (){
+            console.log("匿名函数");
+        };
+        
+        fun4();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

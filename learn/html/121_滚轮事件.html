@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function (){
+            var box1 = document.getElementById("box1");
+            /**
+             * onmousewheel
+             * 鼠标滚轮滚动事件
+             * 
+             * 不兼容火狐浏览器
+             * 火狐浏览器需要使用DOMMouseScroll绑定鼠标滚轮滚动事件，而且该事件需要通过addEventListener()函数来绑定
+             */
+            // 写法1
+            // box1.onmousewheel = function (){
+            //     alert("123");
+            // };
+
+            // bind(box1, "DOMMouseSrcoll", function (){
+            //     alert("123");
+            // });
+            
+            // 写法2
+            // function fun(){
+            //     alert("123");
+            // }
+
+            // box1.onmousewheel = fun;
+            //
+            // bind(box1, "DOMMouseSrcoll", fun);
+            
+            // 写法3
+            // box1.onmousewheel = function (){
+            //     alert("123");
+            // };
+            //
+            // bind(box1, "DOMMouseSrcoll", box1.onmousewheel); // 为火狐浏览器绑定鼠标滚轮滚动事件
+
+            // 写法3
+            box1.onmousewheel = function (event){
+                event = event || window.event;
+                /**
+                 * event.wheelDelta
+                 * 获取鼠标滚轮滚动的方向
+                 * 向上滚动 event.wheelDelta = 120 
+                 * 向下滚动 event.wheelDelta = -120
+                 * event.wheelDelta值的大小无意义，值的正负性有意义
+                 * 
+                 * 火狐浏览器不兼容event.wheelDelta，使用event.detail来获取鼠标滚轮滚动的方向
+                 * 向上滚动 event.detail = -3
+                 * 向下滚动 event.detail = 3
+                 */
+                // alert(event.wheelDelta); 
+                // alert(event.detail);
+                if(event.wheelDelta > 0 || event.detail < 0){ // 滚轮向上滚动
+                    box1.style.height = box1.clientHeight - 10 + "px";
+                }
+                else{ // 滚轮向下滚动
+                    box1.style.height = box1.clientHeight + 10 + "px";
+                }
+
+                /**
+                 * 如果浏览器的页面有滚动条，滚动条会随鼠标滚轮滚动，这是浏览器的默认行为
+                 * 可以使用return false关闭这一默认行为
+                 * 
+                 * 当使用addEventListener()方法绑定响应函数时，不能使用return false取消浏览器的默认行为
+                 * 可以通过event.preventDefault()方法取消，但是该方法不兼容IE8及以下版本的浏览器
+                 */
+                // event.preventDefault(); // 取消浏览器的默认行为
+                event.preventDefault && event.preventDefault(); // 取消浏览器的默认行为，解决IE8及以下版本浏览器的兼容性问题
+                return false; // 取消浏览器的默认行为
+            };
+
+            bind(box1, "DOMMouseSrcoll", box1.onmousewheel); // 为火狐浏览器绑定鼠标滚轮滚动事件
+            
+
+        };
+
+        function bind(obj, eventStr, callback){
+            if(obj.addEventListener)
+                obj.addEventListener(eventStr, callback, false); // addEventListener
+            else
+                // obj.attachEvent("on"+eventStr, callback); // attachEventListener，由浏览器调用callback，this指向window
+
+                // 在匿名函数中调用回调函数
+                obj.attachEvent("on"+eventStr, function (){ // 由浏览器调用匿名函数function
+                    callback.call(obj); // 在匿名函数function中调用callback，this指向obj
+                });
+        }
+    </script>
+</head>
+<!--<body>-->
+<body style="height: 2000px">
+    <div id="box1">
+        
+    </div>
+
+</body>
+</html>

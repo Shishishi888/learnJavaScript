@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            /*background-color: red !important; !* !important表示该样式有较高的优先级，即使通过JS也不能覆盖。不建议使用 *!*/
+        }
+    </style>
+    <script type="text/javascript">
+        /**
+         * 操作元素的内联样式
+         */
+        window.onload = function (){
+            /**
+             * 单击按钮1，修改box1的内联样式
+             * 语法：元素.style.样式名 = 样式值
+             * 内联样式有较高的优先级，通过JS修改的内联样式会立即生效
+             */
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function (){
+                box1.style.width = "300px";
+                box1.style.height = "300px";
+                box1.style.backgroundColor = "yellow";
+            };
+
+            /**
+             * 单击按钮2，读取元素的内联样式
+             */
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function (){
+              // alert(box1.style.width); 
+               // alert(box1.style.height);
+                alert(box1.style.backgroundColor);
+            };
+        };
+    </script>
+</head>
+<body>
+    <button id="btn01">按钮1</button>
+    <button id="btn02">按钮2</button>
+    <div id="box1">
+        
+    </div>
+
+</body>
+</html>

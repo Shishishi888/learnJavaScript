@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function createPerson(name, age, gender){
+            var obj = new Object();
+            obj.name = name;
+            obj.age = age;
+            obj.gender = gender;
+            return obj;
+        }
+        
+        function createDog(name, age){
+            var obj = new Object();
+            obj.name = name;
+            obj.age = age;
+            return obj;
+        }
+        
+        var person = createPerson("Shishi", 18, "male");
+        var dog = createDog("Dog", 3);
+        
+        console.log(person);
+        console.log(dog);
+
+        /**
+         * 构造函数
+         * 创建构造函数和创建普通函数没有区别；
+         * 构造函数命名在习惯上首字母大写；
+         * 普通函数直接调用，构造函数需要使用new关键字调用；
+         * 
+         * 构造函数执行的流程：
+         *      -立刻创建一个新的对象；
+         *      -将新建的对象设置为函数中的this，在构造函数中可以使用this引用新创建的对象；
+         *      -逐行执行函数中的代码；
+         *      -将新创建的对象作为函数值返回
+         *      
+         * 使用同一个构造函数创建的对象，称为同一类对象
+         * 也将一个构造函数称为一个类
+         * 将通过构造函数创建的对象称为类的实例
+         * 
+         * 
+         * this总结
+         * 当以函数的形式调用时，this代指window；
+         * 当以方法的形式调用时，this代指调用方法的对象；
+         * 当以构造函数的形式调用时，this代指新创建的那个对象
+         */
+        function Person(name, age, gender){
+            // alert(this);
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.sayName = function (){
+                alert(this.name);
+            }
+        }
+        
+        var person1 = Person(); // 按普通函数的方式调用
+        console.log(person1);
+        
+        var person2 = new Person("ShiYang", 18, "male"); // 按构造函数的方式调用
+        console.log(person2);
+        // console.log(person2.name);
+
+        /**
+         * 使用instanceof可以检查一个对象是否是一个类的实例
+         */
+        console.log(person2 instanceof Person);
+        
+        console.log(person2 instanceof Object); 
+        
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>
