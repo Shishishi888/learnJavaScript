@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /**
+         * History
+         * 操控浏览器向前、向后翻页
+         */
+        // alert(history);
+        // alert(history.length); // 获取当次访问URL的数量
+        window.onload = function (){
+            btn.onclick = function (){
+                // history.back(); // 后退到上一页面
+                // history.forward(); // 前进到下一页面
+                /**
+                 * go()
+                 * 跳转到指定的页面
+                 */
+                history.go(1); // 向前跳转1个页面
+                // history.go(-1); // 向后跳转1个页面
+                history.go(-2); // 向后跳转1个页面
+            };
+        };
+    </script>
+
+</head>
+<body>
+<!--    <button id="btn">退回</button>-->
+<!--    <button id="btn">前进</button>-->
+    <button id="btn">go</button>
+    <h1>125_History.html</h1>
+    <a href="001_JS简介.html">001_JS简介.html</a>
+</body>
+</html>
