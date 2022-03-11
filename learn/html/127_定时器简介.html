@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function (){
+
+          var count = document.getElementById("count");
+          // for(var i = 0; i < 10; ++i){
+          //     count.innerHTML = i;
+          //     alert("hello");
+          // }
+
+            /**
+             * setInterval()
+             * 定时调用：可以每隔一段时间调用一次指定的函数
+             * 返回一个number，该number是定时器的唯一标识
+             */
+            var num = 1;
+            var timer = setInterval(function (){
+                count.innerHTML = num++;
+                if(num == 11){
+                    clearInterval(timer);
+                }
+            }, 1000); // 每隔1000毫秒（1秒）执行一次
+
+            alert(timer);
+            
+            /**
+             * clearInterval()
+             * 关闭定时器
+             */
+            // clearInterval(timer);
+
+        };
+    </script>
+</head>
+<body>
+    <h1 id="count"></h1>
+</body>
+</html>
