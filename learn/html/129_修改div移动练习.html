@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        /**
+         * 通过定时器解决div移动卡顿的问题
+         */
+        window.onload = function (){
+
+            var speed = 10; // 速度
+            
+            var dir = 0; // 方向
+            
+            setInterval(function(){
+                switch (dir){
+                    case 37: // 左箭头
+                        box1.style.left = box1.offsetLeft - speed + "px";
+                        break;
+                    case 38: // 上箭头
+                        box1.style.top = box1.offsetTop - speed + "px";
+                        break;
+                    case 39: // 右箭头
+                        box1.style.left = box1.offsetLeft + speed + "px";
+                        break;
+                    case 40: // 下箭头
+                        box1.style.top = box1.offsetTop + speed + "px";
+                        break;
+                }
+            }, 30);
+            
+            document.onkeydown = function (event){
+                event = event || window.event;
+                // alert(event.keyCode);
+                
+                if(event.ctrlKey) // 按下ctrl键加速
+                    speed = 20;
+                else 
+                    speed = 10;
+                
+                dir = event.keyCode;
+                
+            };
+            
+            document.onkeyup = function (event){
+                dir = 0;
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="box1">
+    
+    </div>
+
+</body>
+</html>

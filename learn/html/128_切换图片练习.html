@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function (){
+            var img1 = document.getElementById("img1");
+            var imgArr = ["../img/img_128/1.jpg", "../img/img_128/2.jpg", "../img/img_128/3.jpg", "../img/img_128/4.jpg", "../img/img_128/5.jpg"];
+            var index = 0;
+            var timer; // 定时器标识
+
+            /**
+             * 每点击一次btn01，就开启一个定时器
+             * 而点击btn02，只能关闭最后一个定时器，因为timer已经标识为最后一个定时器
+             * 
+             * 因此，在开启定时器之前，需要将先当前元素的上一个定时器关闭
+             */
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function (){
+                clearInterval(timer); // 关闭当前元素的上一个定时器
+                timer = setInterval(function (){
+                    ++index;
+                    // if(index >= imgArr.length){
+                    //     index = 0;
+                    // }
+                    // index = index % imgArr.length;
+                    index %= imgArr.length;
+                    img1.src = imgArr[index];
+                }, 1000);
+            };
+            
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function (){
+                /**
+                 * clearInterval()可以接受任意参数，例如null、undefined等
+                 * 如果参数是一个有效的定时器标识，则停止相应的定时器；
+                 * 如果参数不是一个有效的定时器标识，则什么也不发生（不报错）
+                 */
+              clearInterval(timer); 
+            };
+        };
+    </script>
+</head>
+<body>
+    <image id="img1" src="../img/img_128/1.jpg"/>
+    <br/>
+    <br/>
+    <button id="btn01">开始</button>
+    <button id="btn02">停止</button>
+</body>
+</html>
