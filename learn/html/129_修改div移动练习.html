@@ -42,7 +42,7 @@
                 event = event || window.event;
                 // alert(event.keyCode);
                 
-                if(event.ctrlKey) // 按下ctrl键加速
+                if(event.ctrlKey)
                     speed = 20;
                 else 
                     speed = 10;
@@ -51,7 +51,7 @@
                 
             };
             
-            document.onkeyup = function (event){
+            document.onkeyup = function (){
                 dir = 0;
             }
         };

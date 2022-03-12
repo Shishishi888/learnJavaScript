@@ -13,7 +13,7 @@
     </style>
     <script type="text/javascript">
         window.onload = function (){
-          document.onkeydown = function (event){ // 持续按下方向键，div刚开始移动会有延迟，这是防误触机制
+          document.onkeydown = function (event){ // 按下方向键，div移动起初会有卡顿，这是防误触机制
             event = event || window.event;
               // alert(event.keyCode);
               var speed = 10;
