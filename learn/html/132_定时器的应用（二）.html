@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0px; /*如果没有指定该值，IE浏览器会默认该值为auto*/
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var box1 = document.getElementById("box1");
+            
+            // 向右移动
+            btn01.onclick = function () {
+                move(box1, 800, 10);
+            };
+
+            // 向左移动
+            btn02.onclick = function () {
+                // move(box1, 0, -10);
+                move(box1, 0, 10);
+            };
+        };
+
+        var timer;
+        function move(obj, target, speed){
+            // 关闭当前元素的上一个定时器
+            clearInterval(timer);
+            // 获取元素当前的位置
+            var currentValue = parseInt(getStyle(obj, "left")); 
+            // 判断speed的正负
+            if(currentValue > target)
+                speed = -speed;
+            timer = setInterval(function (){
+                var oldValue = parseInt(getStyle(obj, "left")); // parseInt，将xpx转换为整形x，方便参与计算
+                var newValue = oldValue + speed;
+                if((speed < 0 && newValue < target) || (speed > 0 && newValue > target)){
+                    newValue = target;
+                }
+                obj.style.left = newValue + "px";
+                if(newValue == target){
+                    clearInterval(timer);
+                }
+            }, 30);
+        }
+
+        /**
+         * 获取指定元素的当前样式
+         */
+        function getStyle(obj, styleName){
+            return window.getComputedStyle ? getComputedStyle(obj, null)[styleName] : obj.currentStyle[styleName];
+        }
+        
+    </script>
+</head>
+<body>
+    <button id="btn02">向左移动</button>
+    <button id="btn01">向右移动</button>
+    <br />
+    <br />
+    <div id="box1">
+    
+    </div>
+    <div style="width: 0;height: 1000px;border-left: 1px black solid;position: absolute;left: 800px;top:0px"></div>
+
+</body>
+</html>
