@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0px; /*如果没有指定该值，IE浏览器会默认该值为auto*/
+        }
+
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            left: 0px; /*如果没有指定该值，IE浏览器会默认该值为auto*/
+            top: 200px;
+        }
+    </style>
+    <script type="text/javascript" src="../js/133_scripts.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var box1 = document.getElementById("box1");
+
+            // 向右移动
+            btn01.onclick = function () {
+                move(box1, "left", 800, 20);
+            };
+
+            // 向左移动
+            btn02.onclick = function () {
+                // move(box1, 0, -10);
+                move(box1, "left", 0, 10);
+            };
+
+            var btn03 = document.getElementById("btn03");
+            btn03.onclick = function(){
+                move(box2, "left", 800, 10);
+            };
+
+            var btn04 = document.getElementById("btn04");
+            btn04.onclick = function(){
+                // move(box2, "width", 800, 10);
+                // move(box2, "top", 800, 10);
+                // move(box2, "height", 800, 10);
+                move(box2, "width", 800, 10, function (){
+                    // alert("动画执行完毕");
+                    move(box2, "height", 400, 10, function (){
+                        move(box2, "top", 0, 10, function (){
+                            move(box2, "width", 100, 10, function (){
+
+                            });
+                        });
+                    });
+                });
+            };
+        };
+
+        // // var timer;
+        // function move(obj, attr, target, speed, callback){
+        //     // 关闭当前元素的上一个定时器
+        //     clearInterval(obj.timer);
+        //     // 获取元素当前的位置
+        //     var currentValue = parseInt(getStyle(obj, attr));
+        //     // 判断speed的正负
+        //     if(currentValue > target)
+        //         speed = -speed;
+        //     obj.timer = setInterval(function (){ // 向执行动画的对象中添加timer属性，用来保存各自的定时器标识
+        //         var oldValue = parseInt(getStyle(obj, attr)); // parseInt，将xpx转换为整形x，方便参与计算
+        //         var newValue = oldValue + speed;
+        //         if((speed < 0 && newValue < target) || (speed > 0 && newValue > target)){
+        //             newValue = target;
+        //         }
+        //         obj.style[attr] = newValue + "px";
+        //         if(newValue == target){
+        //             clearInterval(obj.timer);
+        //             callback && callback();
+        //         }
+        //     }, 30);
+        // }
+        //
+        // /**
+        //  * 获取指定元素的当前样式
+        //  */
+        // function getStyle(obj, styleName){
+        //     return window.getComputedStyle ? getComputedStyle(obj, null)[styleName] : obj.currentStyle[styleName];
+        // }
+
+    </script>
+</head>
+<body>
+    <button id="btn02">box1向左移动</button>
+    <button id="btn01">box1向右移动</button>
+    <button id="btn03">box2向右移动</button>
+    <button id="btn04">测试</button>
+    <br />
+    <br />
+    <div id="box1">
+    
+    </div>
+    <div id="box2">
+
+    </div>
+    <div style="width: 0;height: 1000px;border-left: 1px black solid;position: absolute;left: 800px;top:0px"></div>
+
+</body>
+</html>
