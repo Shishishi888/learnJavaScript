@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+    <!--    JSON操作兼容IE7及以下版本浏览器的最佳方案-->
+    <script type="text/javascript" src="../js/json2.js"></script>
+    
+    <script type="text/javascript">
+        /**
+         * 将JSON字符串转换为对象
+         */
+        
+        var obj1 = '{"name":"ShiYang", "age":18, "gender":"male"}';
+        
+        /**
+         * eval()
+         * 可以执行一段字符串形式的JS代码
+         * 
+         * 如果字符串中有{}，则eval将{}内的内容当成代码块解析。如果不希望eval将{}内的内容当成代码块解析，则在字符串的前后加()
+         * 
+         * 在开发中尽量不要使用eval：执行性能差；安全隐患
+         */
+        var str = "alert('hello');";
+        eval(str);
+        
+        // eval(obj1); 
+        var obj = eval("(" + obj1 + ")");
+        console.log(obj);
+        
+        
+        console.log(JSON);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
