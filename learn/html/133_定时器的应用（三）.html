@@ -68,6 +68,13 @@
         };
 
         // // var timer;
+        // /**
+        //  * @param obj 要执行动画的对象
+        //  * @param attr 要执行动画的样式，比如left、top、width、height等
+        //  * @param target 执行动画的目标位置
+        //  * @param speed 移动的速度
+        //  * @param callback 回调函数，将在动画执行完以后执行
+        //  */
         // function move(obj, attr, target, speed, callback){
         //     // 关闭当前元素的上一个定时器
         //     clearInterval(obj.timer);
@@ -85,7 +92,7 @@
         //         obj.style[attr] = newValue + "px";
         //         if(newValue == target){
         //             clearInterval(obj.timer);
-        //             callback && callback();
+        //             callback && callback(); // 判断调用move方法时是否传入回调函数
         //         }
         //     }, 30);
         // }
