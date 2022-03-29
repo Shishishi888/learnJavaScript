@@ -85,7 +85,7 @@
                 allA[i].num = i;
                 allA[i].onclick = function (){
                     
-                    // 点击超链接按钮时关闭自动切换图片
+                    // 点击导航栏的超链接按钮时关闭自动切换图片
                     clearInterval(timer);
                     
                     index = this.num;
@@ -100,7 +100,8 @@
                     move(imgList, "left", -520*index, 20, function (){
                         // 动画执行完毕，开启自动切换图片
                         autoChange();
-                    })
+                    });
+                    
                 };
             }
             
