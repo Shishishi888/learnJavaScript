@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer{
+            width: 520px;
+            height: 333px;
+            margin: 50px auto; /*居中*/
+
+            background-color: greenyellow;
+
+            padding: 10px 0;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        #imgList{
+            list-style: none;
+
+            /*width: 2600px;*/
+
+            position: absolute;
+
+            left: -520px;
+        }
+
+        #imgList li{
+            float: left;
+
+            margin: 0 10px;
+        }
+
+        #navDiv{
+            position: absolute;
+
+            bottom: 15px;
+            /*left: 197px;*/
+        }
+
+        #navDiv a{
+            /*display: block; !*由内联元素变为块元素*!*/
+            float: left;
+
+            width: 15px;
+            height: 15px;
+
+            background-color: red;
+
+            margin: 0 5px;
+
+            opacity: 0.5;
+            filter: alpha(opacity=50);  /*兼容IE8及以下版本的浏览器*/
+        }
+
+        #navDiv a:hover{
+            background-color: black;
+        }
+    </style>
+    <script type="text/javascript" src="../js/133_scripts.js"></script>
+    <script type="text/javascript">
+        window.onload = function (){
+            var imgList = document.getElementById("imgList");
+            var imgArr = document.getElementsByTagName("img");
+            imgList.style.width = 520 * imgArr.length + "px";
+
+            // 设置导航按钮居中
+            var navDiv = document.getElementById("navDiv");
+            var outer = document.getElementById("outer");
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px";
+
+            var index = 0;
+            var  allA = document.getElementsByTagName("a");
+            allA[index].style.backgroundColor = "black";
+
+            for(var i = 0; i < allA.length; ++i){
+                allA[i].num = i;
+                allA[i].onclick = function (){
+                    
+                    // 点击超链接按钮时关闭自动切换图片
+                    clearInterval(timer);
+                    
+                    index = this.num;
+
+                    // 切换图片
+                    // imgList.style.left = -520 * index + "px"
+
+                    // 修改导航栏
+                    setA();
+
+                    // 使用move方法来切换图片
+                    move(imgList, "left", -520*index, 20, function (){
+                        // 动画执行完毕，开启自动切换图片
+                        autoChange();
+                    })
+                };
+            }
+            
+            // 自动切换图片
+            autoChange();
+            
+            // 设置导航栏中的超链接按钮
+            function setA(){
+                // 判断当前的索引是否为最后一张图片
+                if(index >= imgArr.length - 1){
+                    index = 0;
+                    
+                    // 此时显示最后一张图片，而最后一张图片与第一张图片是同一张图片
+                    // 通过CSS将最后一张图片切换为第一张图片
+                    imgList.style.left = 0;
+                }
+                // 将所有的超链接按钮设置为红色
+                for(var i = 0; i < allA.length; ++i) {
+                    // allA[i].style.backgroundColor = "red"; // 内联样式的优先级高于样式表中的样式，hover失效
+                    allA[i].style.backgroundColor = ""; // 使用样式表中的默认样式
+                }
+
+                // 将选中的超链接按钮设置为黑色
+                allA[index].style.backgroundColor = "black";
+            }
+
+            // 启动自动切换图片
+            var timer;
+            function autoChange(){
+                timer = setInterval(function (){
+                    ++index;
+                    index %= imgArr.length;
+                    move(imgList, "left", -520*index, 20, function (){
+                        setA(); // 设置导航栏中的超链接按钮
+                    });
+                }, 3000)
+                // }, 1000)
+            }
+        };
+    </script>
+</head>
+<body>
+<div id="outer">
+    <ul id="imgList">
+        <li><img src="../img/img_128/1.jpg"></li>
+        <li><img src="../img/img_128/2.jpg"></li>
+        <li><img src="../img/img_128/3.jpg"></li>
+        <li><img src="../img/img_128/4.jpg"></li>
+        <li><img src="../img/img_128/5.jpg"></li>
+        
+        <li><img src="../img/img_128/1.jpg"></li>
+<!--        <li><img src="../img/img_128/3.jpg"></li>-->
+    </ul>
+
+    <div id="navDiv">
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+    </div>
+</div>
+</body>
+</html>
