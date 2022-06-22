@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+        <!--
+            可以将js代码写在外部的js文件中
+            推荐
+         -->
+        <script type="text/javascript" src="../js/003_script.js">
+            // alert("内部：你好"); //不执行
+        </script>
+
+        <script type="text/javascript">
+            alert("内部：你好");
+        </script>
+
+        <!--可以将js代码写在script标签中 -->
+        <!--
+        <script type="text/javascript">
+            alert("你好");
+        </script>
+        -->
+    </head>
+
+    <body>
+        <!--
+            可以将js代码写在button的onclick属性中
+            耦合度高
+        -->
+        <button onclick="alert('你好');">点一下</button>
+
+        <!--
+            可以将js代码写在超链接的href属性中
+            耦合度高
+         -->
+        <a href="javascript:alert('你好');">点击一下</a>
+        <a href="javascript:;">点击一下</a>
+    </body>
+</html>
