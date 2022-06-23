@@ -1,0 +1,19 @@
+<script>
+    // 传统写法
+    var f1 = function(a) {
+        return a;
+    }
+    console.log(f1(1));
+
+    var f2 = function(a, b) {
+        return a + b;
+    }
+    console.log(f2(1, 2));
+
+    // es6写法
+    var f3 = a => a;  // 参数 => 函数体
+    console.log(f3(1));
+
+    var f4 = (a, b) => a + b;
+    console.log(f4(1, 2));
+</script>
